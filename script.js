@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show the selected section
     const selectedSection = document.getElementById(sectionId);
     selectedSection.classList.add('active');
+
+    // The map was created while hidden, so recalculate its size once visible
+    if (sectionId === 'portfolio') {
+      map.invalidateSize();
+    }
   }
 
   // Expose the function to global scope
@@ -29,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }).addTo(map);
 
   // Add a marker for Nairobi
-  L.marker([1.2921, 36.8219]).addTo(map)
+  L.marker([-1.2921, 36.8219]).addTo(map)
     .bindPopup('Nairobi')
     .openPopup();
 });
