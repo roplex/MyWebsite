@@ -37,4 +37,35 @@ document.addEventListener('DOMContentLoaded', () => {
   L.marker([-1.2921, 36.8219]).addTo(map)
     .bindPopup('Nairobi')
     .openPopup();
+
+  // Submit the contact form in the background and show a thank-you message
+  const form = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button');
+    button.disabled = true;
+    formStatus.className = '';
+    formStatus.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (!response.ok) throw new Error(response.statusText);
+
+      form.reset();
+      form.hidden = true;
+      formStatus.className = 'success';
+      formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
+    } catch (error) {
+      formStatus.className = 'error';
+      formStatus.textContent = 'Sorry, your message could not be sent. Please try again later.';
+    } finally {
+      button.disabled = false;
+    }
+  });
 });
