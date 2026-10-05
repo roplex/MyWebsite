@@ -36,3 +36,17 @@ Then visit http://localhost:8000.
 | `index.html` | Page content and structure |
 | `styles.css` | Layout and styling |
 | `script.js` | Navigation, maps and contact form handling |
+| `cv/cv.html` | Source for the downloadable CV |
+| `Alex-Rop-CV.pdf` | Downloadable CV, generated from `cv/cv.html` |
+
+## Updating the CV
+
+Edit `cv/cv.html`, then regenerate the PDF with Chrome:
+
+```sh
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+  --no-pdf-header-footer --virtual-time-budget=8000 \
+  --print-to-pdf="$PWD/Alex-Rop-CV.pdf" "file://$PWD/cv/cv.html"
+```
+
+Keep phone numbers, email addresses and referee details out of the public CV.
