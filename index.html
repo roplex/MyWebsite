@@ -3,134 +3,382 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alex Rop's Website</title>
+  <title>Alex Rop | Geospatial Engineer</title>
+  <meta name="description" content="Alex Rop, Geospatial Engineer and founder of ROXR Earth, building satellite-driven intelligence for drought, climate risk and environmental monitoring across Africa.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <!-- External Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Alex Rop's Website</h1>
-    <nav>
-      <a href="#" onclick="showSection('about'); return false;">About</a>
-      <a href="#" onclick="showSection('portfolio'); return false;">Portfolio</a>
-      <a href="#" onclick="showSection('projects'); return false;">Projects</a>
-      <a href="#" onclick="showSection('blog'); return false;">Blog</a>
-      <a href="#" onclick="showSection('contact'); return false;">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">Alex Rop</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="about" class="section active">
-      <h2>About Me</h2>
-      <p>Hello! I'm Alex Rop, a passionate Geospatial Engineer with expertise in GIS, remote sensing, and spatial analysis.</p>
-    </section>
-
-    <section id="portfolio" class="section">
-      <h2>Portfolio</h2>
-      <p>Here are some of my recent geospatial projects and analyses.</p>
-      <div id="map" style="height: 400px;"></div>
-    </section>
-
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <p>Selected work in Earth Observation, drought intelligence and climate risk across Africa.</p>
-
-      <div class="cards">
-        <article class="card">
-          <p class="card-meta">ROXR Earth &middot; 2026 &ndash; present</p>
-          <h3>Roxr Climate Intelligence Index (RCII)</h3>
-          <p>A satellite-driven drought intelligence system for arid and semi-arid land (ASAL) regions, built at ROXR Earth, the Earth Observation analytics venture I founded.</p>
-          <ul class="tags"><li>Earth Observation</li><li>Drought</li><li>Climate risk</li></ul>
-        </article>
-
-        <article class="card">
-          <p class="card-meta">Futures Inc. (Japan) &middot; 2025 &ndash; present</p>
-          <h3>Site Selection &amp; Risk Assessment for Nature-Based Solutions</h3>
-          <p>Applying GIS and remote sensing to spatial site selection and risk assessment for climate and nature-based solutions projects in Kenya, including the Yamaha Carbon Credit Project.</p>
-          <ul class="tags"><li>GIS</li><li>Remote sensing</li><li>Carbon projects</li></ul>
-        </article>
-
-        <article class="card">
-          <p class="card-meta">Harvard University, Center for Geographic Analysis &middot; 2024 &ndash; 2025</p>
-          <h3>Multi-Source Drought Index Monitoring</h3>
-          <p>A research study on drought index monitoring based on multi-source remote sensing data, developing automated drought monitoring workflows. The work extended to drought analysis and monitoring in India.</p>
-          <ul class="tags"><li>Remote sensing</li><li>Drought indices</li><li>Automation</li></ul>
-        </article>
-
-        <article class="card">
-          <p class="card-meta">Esri Eastern Africa &middot; 2024</p>
-          <h3>Drought Risk Analysis &amp; Preparedness</h3>
-          <p>A prototype for Kenya's ASAL counties combining suitability modelling, machine learning forecasting and visualization for humanitarian stakeholders, using time series trend analysis to support proactive planning and community engagement.</p>
-          <ul class="tags"><li>Suitability modelling</li><li>Machine learning</li><li>Disaster risk</li></ul>
-        </article>
-
-        <article class="card">
-          <p class="card-meta">Co-author &middot; Upcoming</p>
-          <h3>Harmonizing Earth Observation Data for Enhanced Spatial Analysis</h3>
-          <p>A book chapter on harmonizing Earth Observation data from multiple sources for spatial analysis.</p>
-          <ul class="tags"><li>Publication</li><li>Earth Observation</li></ul>
-        </article>
-
-        <article class="card">
-          <p class="card-meta">Ministry of Lands, Eldoret &middot; 2022</p>
-          <h3>Nine Farms Survey Project</h3>
-          <p>Engineering and surveying work on a land survey project carried out jointly by the County and National Governments in Uasin Gishu County.</p>
-          <ul class="tags"><li>Land surveying</li><li>Public sector</li></ul>
-        </article>
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div id="hero-map" class="hero-map" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow mono">1.2921&deg; S &middot; 36.8219&deg; E &mdash; Nairobi, Kenya</p>
+        <h1>Turning satellite data into decisions that matter.</h1>
+        <p class="hero-lead">I'm Alex Rop, a Geospatial Engineer and founder of ROXR Earth. I combine Earth Observation, GIS and machine learning to build intelligence for agricultural resilience, climate adaptation and environmental conservation across Africa.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View my work</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
       </div>
     </section>
 
-    <section id="blog" class="section">
-      <h2>Blog</h2>
-      <p>I write <a href="https://thehsireport.substack.com" target="_blank" rel="noopener">The HSI Report</a>, a speculative fiction series on Substack: a geodetic log documenting the survey of Earth's newly exposed oceanic basins following the Hydro-Spatial Inversion.</p>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <p class="section-label mono">01 / About</p>
+            <h2>Geospatial engineering at the intersection of climate and impact</h2>
+            <p>My work uses satellite intelligence to support the people and places most exposed to environmental risk. I combine Earth Observation, GIS and machine learning in reproducible workflows that turn imagery into practical information for drought monitoring, climate risk and environmental decision-making.</p>
+            <p>At <strong>ROXR Earth</strong>, the Earth Observation analytics company I founded, I'm building the ROXR Climate Intelligence Index, a satellite-driven drought intelligence and forecasting system for arid and semi-arid regions. At <strong>Futures Inc.</strong>, I support site selection and land use assessment for a nature-based carbon project around Lake Victoria. Previously, working remotely with Harvard University's Center for Geographic Analysis, I developed automated multi-source drought monitoring workflows.</p>
+            <p>I'm based in Nairobi, working with international partners remotely and with communities and stakeholders in the field. I'm open to collaborations in Earth Observation, climate risk intelligence, conservation GIS and humanitarian geospatial analysis across Sub-Saharan Africa and beyond.</p>
+          </div>
 
-      <ul class="posts">
-        <li>
-          <time datetime="2026-04-03">3 April 2026</time>
-          <a href="https://thehsireport.substack.com/p/entry-003-the-trench-edge-and-the" target="_blank" rel="noopener">Entry 003: The Trench-Edge &amp; the Neutrino Ghost</a>
-          <p>Thermal variance &amp; recovery of artifact BPI-812</p>
-        </li>
-        <li>
-          <time datetime="2026-02-16">16 February 2026</time>
-          <a href="https://thehsireport.substack.com/p/interlude-omega-override" target="_blank" rel="noopener">Interlude: Omega Override</a>
-          <p>RE: Geodetic drift / Engineer Rahal</p>
-        </li>
-        <li>
-          <time datetime="2026-02-09">9 February 2026</time>
-          <a href="https://thehsireport.substack.com/p/entry-002-the-fracture-labyrinth" target="_blank" rel="noopener">Entry 002: The Fracture-Labyrinth</a>
-          <p>Site-specific anomalies: the "Fracture-Labyrinth" of the Clarion-Clipperton Zone</p>
-        </li>
-        <li>
-          <time datetime="2026-02-04">4 February 2026</time>
-          <a href="https://thehsireport.substack.com/p/entry-001-the-first-stake" target="_blank" rel="noopener">Entry 001: The First Stake</a>
-          <p>First-point calibration &amp; topographic dissonance at the "Pacific High"</p>
-        </li>
-        <li>
-          <time datetime="2026-02-04">4 February 2026</time>
-          <a href="https://thehsireport.substack.com/p/signal-received-transmission-start" target="_blank" rel="noopener">[Signal Received] &mdash; Transmission Start: Project Omega</a>
-          <p>// Decryption complete //</p>
-        </li>
-      </ul>
+          <aside class="facts">
+            <div class="fact">
+              <h3>Focus areas</h3>
+              <ul class="chips">
+                <li>Drought intelligence</li>
+                <li>Climate risk</li>
+                <li>Nature-based solutions</li>
+                <li>Land cover change</li>
+                <li>Humanitarian GIS</li>
+              </ul>
+            </div>
+            <div class="fact">
+              <h3>Education</h3>
+              <p><strong>B.Eng, Geospatial Engineering</strong><br>Second Class Honours (Upper Division)<br>The Technical University of Kenya &middot; 2016&ndash;2021</p>
+            </div>
+            <div class="fact">
+              <h3>Languages</h3>
+              <p>English &middot; Kiswahili &middot; Kalenjin</p>
+            </div>
+          </aside>
+        </div>
 
-      <p><a class="button" href="https://thehsireport.substack.com/subscribe" target="_blank" rel="noopener">Subscribe on Substack</a></p>
+        <div class="toolkit">
+          <h3>Technical toolkit</h3>
+          <div class="toolkit-grid">
+            <div>
+              <h4 class="mono">Programming</h4>
+              <p>Python (pandas, NumPy, SciPy, scikit-learn, GeoPandas, Rasterio, GDAL, matplotlib, Folium), R, JavaScript for Google Earth Engine, KNIME</p>
+            </div>
+            <div>
+              <h4 class="mono">Earth Observation</h4>
+              <p>Google Earth Engine, MODIS, Landsat, Sentinel-2, CHIRPS; anomaly detection, time-series analysis, land cover classification</p>
+            </div>
+            <div>
+              <h4 class="mono">Machine learning</h4>
+              <p>Random Forest classification, time-series cross-validation, feature engineering, class imbalance handling, feature importance analysis</p>
+            </div>
+            <div>
+              <h4 class="mono">GIS &amp; spatial data</h4>
+              <p>QGIS, ArcGIS Pro, PostGIS/PostgreSQL, coordinate reference systems, zonal statistics, spatial data management</p>
+            </div>
+            <div>
+              <h4 class="mono">Data formats</h4>
+              <p>GeoTIFF, NetCDF, Shapefile, GeoJSON, CSV</p>
+            </div>
+            <div>
+              <h4 class="mono">Reproducibility</h4>
+              <p>Git/GitHub, pipeline run logging, documented methodology, reproducible workflow design</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Experience -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <p class="section-label mono">02 / Experience</p>
+        <h2>Where I've worked</h2>
+
+        <div class="experience-grid">
+          <ol class="timeline">
+            <li>
+              <p class="tl-date mono">Sep 2026 &ndash; Present</p>
+              <h3>Ventures Incubatee / Fellow</h3>
+              <p class="tl-org">United Nations Institute for Training and Research (UNITAR) <span class="badge">Remote</span></p>
+              <p>Participant in Phase I of the Empower Africa Programme (TICAD9), UNITAR's Japan-Africa public-private partnership programme, focused on entrepreneurship, AI and digital transformation, business model development and investment readiness, with ROXR Earth as my live project.</p>
+            </li>
+            <li>
+              <p class="tl-date mono">Jun 2026 &ndash; Present</p>
+              <h3>Founder &amp; Director</h3>
+              <p class="tl-org">ROXR Earth Limited &middot; Nairobi</p>
+              <p>Designed and operate the satellite data pipeline behind the ROXR Climate Intelligence Index (RCII), producing monthly drought intelligence and 30/60/90-day forecasts for agricultural insurers, development finance institutions and humanitarian agencies.</p>
+            </li>
+            <li>
+              <p class="tl-date mono">Aug 2025 &ndash; Present</p>
+              <h3>Geospatial &amp; Stakeholder Engagement Consultant</h3>
+              <p class="tl-org">Futures Inc. (Japan) &middot; Lake Victoria, Kenya <span class="badge">Hybrid</span></p>
+              <p>GIS and remote sensing for spatial site selection and land use assessment on the Yamaha Carbon Credit Project, a nature-based carbon project, coordinating across international stakeholders. Analysis is done remotely, with field visits to meet local stakeholders.</p>
+            </li>
+            <li>
+              <p class="tl-date mono">Jan 2025 &ndash; Feb 2026</p>
+              <h3>Geospatial Data Analyst Consultant</h3>
+              <p class="tl-org">Fairtrade Africa &middot; Eastern and Central Africa <span class="badge">Hybrid</span></p>
+              <p>Led land cover change detection and deforestation risk monitoring across 63+ Producer Organizations in six countries using OpenStreetMap, satellite imagery and thematic maps, and managed validation and quality assurance of the monitoring data used in EU Deforestation Regulation (EUDR) compliance reporting. Delivered geospatial data interpretation training to field teams, virtually and in person.</p>
+            </li>
+            <li>
+              <p class="tl-date mono">Aug 2024 &ndash; May 2025</p>
+              <h3>Geospatial Research Assistant &amp; SDL Intern</h3>
+              <p class="tl-org">Harvard University, Center for Geographic Analysis <span class="badge">Remote</span></p>
+              <p>Developed automated Python and KNIME workflows integrating MODIS, Landsat, CHIRPS and soil moisture data across a 23-year time series for multi-source drought index monitoring, including drought analysis in India. Supervised by Devika Jain, AI and Data Science Manager at the Center.</p>
+            </li>
+            <li>
+              <p class="tl-date mono">Jan 2024 &ndash; Mar 2024</p>
+              <h3>Internship Trainee</h3>
+              <p class="tl-org">Esri Eastern Africa &middot; Nairobi</p>
+              <p>Built a disaster risk prototype combining suitability modelling, Random Forest drought forecasting and ArcGIS Dashboard visualization for government and humanitarian stakeholders.</p>
+            </li>
+            <li>
+              <p class="tl-date mono">Feb 2023 &ndash; Nov 2023</p>
+              <h3>Freelance Geospatial Engineer</h3>
+              <p class="tl-org">Uasin Gishu County &middot; Eldoret</p>
+              <p>GIS consultancy including work with the Clerk of Works at Kapseret CDF, supporting spatial data management and mapping for county-level infrastructure and development planning.</p>
+            </li>
+            <li>
+              <p class="tl-date mono">Jan 2022 &ndash; Apr 2022</p>
+              <h3>Geospatial Engineering Intern</h3>
+              <p class="tl-org">Ministry of Lands and Physical Planning &middot; Eldoret</p>
+              <p>Led data collation for the Nine Farms Survey Project, a multi-agency cadastral survey with the Uasin Gishu County Government and the national Ministry of Lands. Took part in land subdivision surveys, land dispute resolution fieldwork, topographic surveying and boundary verification.</p>
+            </li>
+          </ol>
+
+          <div class="map-panel">
+            <div class="map-views" role="group" aria-label="Map view">
+              <button type="button" data-view="world" class="active">World</button>
+              <button type="button" data-view="region">East Africa</button>
+            </div>
+            <div id="work-map" class="work-map"></div>
+            <ul class="map-legend mono">
+              <li><span class="dot dot-onsite"></span>On site in Kenya</li>
+              <li><span class="dot dot-hybrid"></span>Hybrid</li>
+              <li><span class="dot dot-remote"></span>Remote, from Kenya</li>
+            </ul>
+            <p class="map-caption mono">Select a marker for details.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <p class="section-label mono">03 / Projects</p>
+        <h2>Selected work</h2>
+        <p class="section-intro">Earth Observation, drought intelligence and climate risk across Africa.</p>
+
+        <article class="feature">
+          <div class="feature-text">
+            <p class="card-meta mono">ROXR Earth &middot; 2026 &ndash; present &middot; Flagship</p>
+            <h3>ROXR Climate Intelligence Index (RCII)</h3>
+            <p>A satellite-driven drought intelligence and forecasting system for arid and semi-arid land (ASAL) regions. A six-layer Python pipeline ingests MODIS vegetation and land surface temperature imagery alongside CHIRPS rainfall, measures anomalies against a 2000&ndash;2015 baseline, and fuses them into a single index normalised by county and season.</p>
+            <p>Three Random Forest models trained on 26 years of history forecast drought severity 30, 60 and 90 days ahead, validated against Kenya's documented 2011, 2017 and 2022 droughts. Every run is version-controlled and logged for audit and replay.</p>
+            <p>Each month the system produces a PDF intelligence brief, an interactive Folium dashboard and JSON, CSV and GeoJSON data feeds for agricultural insurers, development finance institutions and humanitarian agencies.</p>
+            <ul class="tags"><li>MODIS</li><li>CHIRPS</li><li>Random Forest</li><li>Python</li><li>Drought forecasting</li></ul>
+          </div>
+          <div class="feature-side">
+            <ol class="pipeline mono">
+              <li><span>01</span>Ingest MODIS &amp; CHIRPS</li>
+              <li><span>02</span>Compute anomalies vs 2000&ndash;2015</li>
+              <li><span>03</span>Fuse into the RCII index</li>
+              <li><span>04</span>Forecast 30 / 60 / 90 days</li>
+              <li><span>05</span>Publish briefs, dashboards &amp; feeds</li>
+            </ol>
+            <dl class="stats">
+              <div><dt class="mono">26 yrs</dt><dd>of training data</dd></div>
+              <div><dt class="mono">3</dt><dd>forecast horizons</dd></div>
+              <div><dt class="mono">2.2&ndash;2.7&times;</dt><dd>better than chance</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <div class="cards">
+          <article class="card">
+            <p class="card-meta mono">Futures Inc. (Japan) &middot; Hybrid &middot; 2025 &ndash; present</p>
+            <h3>Site Selection for a Nature-Based Carbon Project</h3>
+            <p>GIS and remote sensing for spatial site selection and land use assessment on the Yamaha Carbon Credit Project around Lake Victoria, combining remote analysis with field engagement with local and international stakeholders.</p>
+            <ul class="tags"><li>GIS</li><li>Remote sensing</li><li>Carbon projects</li></ul>
+          </article>
+
+          <article class="card">
+            <p class="card-meta mono">Fairtrade Africa &middot; Hybrid &middot; 2025 &ndash; 2026</p>
+            <h3>EUDR Deforestation Risk Monitoring</h3>
+            <p>Land cover change detection and deforestation risk monitoring across 63+ Producer Organizations in six East and Central African countries, using OpenStreetMap, satellite imagery and thematic maps. I managed validation and quality assurance to keep the monitoring data consistent for EU Deforestation Regulation (EUDR) compliance reporting, and trained non-technical field teams, virtually and in person, to interpret geospatial data.</p>
+            <ul class="tags"><li>Land cover change</li><li>EUDR compliance</li><li>Training</li></ul>
+          </article>
+
+          <article class="card">
+            <p class="card-meta mono">Harvard CGA &middot; Remote &middot; 2024 &ndash; 2025</p>
+            <h3>Multi-Source Drought Index Monitoring</h3>
+            <p>Automated Python and KNIME workflows integrating MODIS, Landsat, CHIRPS and soil moisture data across a 23-year time series for drought index monitoring and climate risk assessment, extended to drought analysis in India.</p>
+            <ul class="tags"><li>Python</li><li>KNIME</li><li>Drought indices</li></ul>
+          </article>
+
+          <article class="card">
+            <p class="card-meta mono">Esri Eastern Africa &middot; 2024</p>
+            <h3>Drought Risk Analysis &amp; Preparedness</h3>
+            <p>A disaster risk prototype for Kenya's ASAL counties combining suitability modelling, Random Forest drought forecasting and an ArcGIS Dashboard, built for government and humanitarian stakeholders to support proactive planning.</p>
+            <ul class="tags"><li>Suitability modelling</li><li>Random Forest</li><li>ArcGIS Dashboards</li></ul>
+          </article>
+
+          <article class="card">
+            <p class="card-meta mono">Ministry of Lands, Eldoret &middot; 2022</p>
+            <h3>Nine Farms Survey Project</h3>
+            <p>A multi-agency cadastral survey with the Uasin Gishu County Government and the national Ministry of Lands. I led data collation, managing spatial datasets, field survey records and boundary documentation across the project area.</p>
+            <ul class="tags"><li>Cadastral survey</li><li>Fieldwork</li><li>Public sector</li></ul>
+          </article>
+
+          <article class="card">
+            <p class="card-meta mono">Technical University of Kenya &middot; 2021</p>
+            <h3>Mapping Built-Up Area Change</h3>
+            <p>My final-year project, mapping changes in built-up areas with Mombasa Road in Nairobi as the case study.</p>
+            <ul class="tags"><li>Urban change</li><li>Remote sensing</li></ul>
+          </article>
+        </div>
+
+        <div class="publications">
+          <h3>Publications &amp; presentations</h3>
+          <ul>
+            <li>
+              <p class="pub-meta mono">Book chapter &middot; Elsevier &middot; Forthcoming</p>
+              <p class="pub-title">Harmonizing Earth Observation Data for Enhanced Spatial Analysis</p>
+              <p>Co-authored with Devika Jain, AI and Data Science Manager at Harvard University's Center for Geographic Analysis. A KNIME-based workflow for integrating multi-source Earth Observation data, with a case study on surface urban heat islands in Phoenix, Arizona.</p>
+            </li>
+            <li>
+              <p class="pub-meta mono">Conference presentation &middot; 2025</p>
+              <p class="pub-title">Automated CHIRPS Rainfall Data Extraction for Multi-Source Drought Index Monitoring</p>
+              <p>Team presentation at the Harvard CGA Conference.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="credentials">
+          <h3>Training &amp; certifications</h3>
+          <ul>
+            <li><span>Spatial Data Science: The New Frontier in Analytics</span><span class="mono">Esri &middot; 2024</span></li>
+            <li><span>GIS for Climate Action</span><span class="mono">Esri &middot; 2024</span></li>
+            <li><span>AiCE, Career Essentials</span><span class="mono">ALX &middot; 2024</span></li>
+            <li><span>Machine Learning for Everyone</span><span class="mono">DataCamp &middot; 2021</span></li>
+            <li><span>AI Fundamentals: Core Concepts and Principles</span><span class="mono">edX</span></li>
+            <li><span>AI in Society: Ethics, Leadership, and the Road Ahead</span><span class="mono">edX</span></li>
+            <li><span>From Space to Screen</span><span class="mono">Certification</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section id="writing" class="section section-alt">
+      <div class="container">
+        <p class="section-label mono">04 / Writing</p>
+        <h2>The HSI Report</h2>
+        <p class="section-intro">A speculative fiction series on Substack: a geodetic log documenting the survey of Earth's newly exposed oceanic basins following the Hydro-Spatial Inversion.</p>
+
+        <ul class="posts">
+          <li>
+            <time class="mono" datetime="2026-04-03">03 Apr 2026</time>
+            <div>
+              <a href="https://thehsireport.substack.com/p/entry-003-the-trench-edge-and-the" target="_blank" rel="noopener">Entry 003: The Trench-Edge &amp; the Neutrino Ghost</a>
+              <p>Thermal variance &amp; recovery of artifact BPI-812</p>
+            </div>
+          </li>
+          <li>
+            <time class="mono" datetime="2026-02-16">16 Feb 2026</time>
+            <div>
+              <a href="https://thehsireport.substack.com/p/interlude-omega-override" target="_blank" rel="noopener">Interlude: Omega Override</a>
+              <p>RE: Geodetic drift / Engineer Rahal</p>
+            </div>
+          </li>
+          <li>
+            <time class="mono" datetime="2026-02-09">09 Feb 2026</time>
+            <div>
+              <a href="https://thehsireport.substack.com/p/entry-002-the-fracture-labyrinth" target="_blank" rel="noopener">Entry 002: The Fracture-Labyrinth</a>
+              <p>Site-specific anomalies: the "Fracture-Labyrinth" of the Clarion-Clipperton Zone</p>
+            </div>
+          </li>
+          <li>
+            <time class="mono" datetime="2026-02-04">04 Feb 2026</time>
+            <div>
+              <a href="https://thehsireport.substack.com/p/entry-001-the-first-stake" target="_blank" rel="noopener">Entry 001: The First Stake</a>
+              <p>First-point calibration &amp; topographic dissonance at the "Pacific High"</p>
+            </div>
+          </li>
+          <li>
+            <time class="mono" datetime="2026-02-04">04 Feb 2026</time>
+            <div>
+              <a href="https://thehsireport.substack.com/p/signal-received-transmission-start" target="_blank" rel="noopener">[Signal Received] &mdash; Transmission Start: Project Omega</a>
+              <p>// Decryption complete //</p>
+            </div>
+          </li>
+        </ul>
+
+        <a class="btn btn-primary" href="https://thehsireport.substack.com/subscribe" target="_blank" rel="noopener">Subscribe on Substack</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
     <section id="contact" class="section">
-      <h2>Contact Me</h2>
-      <form id="contact-form" action="https://formspree.io/f/maeqwzlw" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <p id="form-status" role="status"></p>
+      <div class="container contact-grid">
+        <div>
+          <p class="section-label mono">05 / Contact</p>
+          <h2>Let's work together</h2>
+          <p>I'm open to collaborations in Earth Observation, climate risk intelligence, conservation GIS and humanitarian geospatial analysis. Send me a message, or find me online.</p>
+          <ul class="contact-links">
+            <li><span class="mono">LinkedIn</span><a href="https://www.linkedin.com/in/alex-rop44" target="_blank" rel="noopener">linkedin.com/in/alex-rop44</a></li>
+            <li><span class="mono">Substack</span><a href="https://thehsireport.substack.com" target="_blank" rel="noopener">thehsireport.substack.com</a></li>
+            <li><span class="mono">Based in</span>Nairobi, Kenya</li>
+          </ul>
+        </div>
+
+        <div class="form-panel">
+          <form id="contact-form" action="https://formspree.io/f/maeqwzlw" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </form>
+          <p id="form-status" role="status"></p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Alex Rop</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Alex Rop &middot; Geospatial Engineer</p>
+      <p class="mono">1.2921&deg; S, 36.8219&deg; E</p>
+    </div>
   </footer>
 
   <!-- Include Leaflet JS -->
